@@ -7,5 +7,7 @@
 ### run <code>npm i</code> to setup
 
 ### to run: <code>npm run dev</code>
+This has to be run, as it uses npm-run-all, see https://www.npmjs.com/package/npm-run-all for more info
 
 ESLint is configured with the EDA settings.
+

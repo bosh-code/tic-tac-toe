@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "run server",
-    "dev": "run dev:tailbuild dev:server",
+    "dev": "run-p dev:tailbuild dev:server",
     "server": "node index",
     "dev:server": "nodemon index",
     "dev:tailbuild": "tailwindcss build ./src/tailwind.css -o ./public/tailwind.css"
