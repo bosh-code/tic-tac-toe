@@ -12,7 +12,11 @@ server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
 server.get('/', (req, res) => {
-  res.render('home', {})
+  let viewData = {
+    player: 'x',
+    board: [true, false, false, true, false, false, true, false, false]
+  }
+  res.render('home', viewData)
 })
 
 module.exports = server
