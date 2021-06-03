@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p server",
+    "start": "run server",
     "dev": "run-p dev:tailbuild dev:server",
     "server": "node index",
     "dev:server": "nodemon index",
