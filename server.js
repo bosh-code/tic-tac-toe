@@ -11,4 +11,8 @@ server.use(express.urlencoded({ extended: false }))
 server.engine('hbs', hbs({ extname: 'hbs' }))
 server.set('view engine', 'hbs')
 
+server.get('/', (req, res) => {
+  res.render('home', {})
+})
+
 module.exports = server
