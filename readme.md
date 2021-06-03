@@ -1,10 +1,11 @@
-#DO NOT COMMIT TO MASTER
-###If you do, Ryan will come to your house eat all your nice food.
+# DO NOT COMMIT TO MASTER
 
-##Make branches for all feature changes, 
+### If you do, Ryan will come to your house eat all your nice food.
 
-###run <code>npm i</code> to setup
+## Make branches for all feature changes,
 
-###to run: <code>npm run dev</code>
+### run <code>npm i</code> to setup
+
+### to run: <code>npm run dev</code>
 
 ESLint is configured with the EDA settings.
