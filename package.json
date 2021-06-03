@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "run-p server",
-    "dev": "run-p dev:tailbuild dev:server",
+    "start": "run server",
+    "dev": "run dev:tailbuild dev:server",
     "server": "node index",
     "dev:server": "nodemon index",
     "dev:tailbuild": "tailwindcss build ./src/tailwind.css -o ./public/tailwind.css"
