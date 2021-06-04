@@ -1,4 +1,6 @@
 const express = require('express')
+const utils = require('./utils')
+
 const hbs = require('express-handlebars')
 
 const server = express()
@@ -25,16 +27,37 @@ server.get('/', (req, res) => {
 
 server.post('/', (req, res) => {
   let value = Object.keys(req.body)[0]
+  let result = false
   board[value] = player
-
-  if (player === 'x') {
-    player = 'o'
-  } else if (player === 'o') {
-    player = 'x'
-  }
-  console.log(player)
   console.log(board)
-  res.redirect('/')
+
+  let playerMoves = utils.getWinArr(board, player)
+  console.log('player moves ' + playerMoves)
+
+  if (utils.checkWin(playerMoves)) {
+    console.log("WIN")
+     result = true
+  }
+
+  if (result) {
+    board = [false, false, false, false, false, false, false, false, false]
+    res.redirect('win')
+  } else {
+    if (player === 'x') {
+      player = 'o'
+    } else if (player === 'o') {
+      player = 'x'
+    }
+    res.redirect('/')
+  }
+})
+
+/**
+ * temp win function to render a win page. Passed viewData obj temp for testing
+ */
+server.get('/win', (req, res) => {
+  res.render('win', {player: player})
+  player = 'x'
 })
 
 module.exports = server
