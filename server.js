@@ -35,14 +35,17 @@ server.post('/', (req, res) => {
   console.log('player moves ' + playerMoves)
 
   if (utils.checkWin(playerMoves)) {
-    console.log("WIN")
-     result = true
+    console.log('WIN')
+    result = true
   }
 
   if (result) {
-    board = [false, false, false, false, false, false, false, false, false]
     res.redirect('win')
   } else {
+    if (!board.includes(false)) {
+      res.redirect('tie')
+    }
+
     if (player === 'x') {
       player = 'o'
     } else if (player === 'o') {
@@ -53,10 +56,20 @@ server.post('/', (req, res) => {
 })
 
 /**
- * temp win function to render a win page. Passed viewData obj temp for testing
+ * Win route, pass in winning player then reset player for next game.
  */
 server.get('/win', (req, res) => {
-  res.render('win', {player: player})
+  res.render('win', { player: player })
+  board = [false, false, false, false, false, false, false, false, false]
+  player = 'x'
+})
+
+/**
+ * Redirect for tie. No viewData, reset player for next game.
+ */
+server.get('/tie', (req, res) => {
+  res.render('tie', {})
+  board = [false, false, false, false, false, false, false, false, false]
   player = 'x'
 })
 
