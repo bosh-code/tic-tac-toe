@@ -34,7 +34,32 @@ server.post('/', (req, res) => {
   }
   console.log(player)
   console.log(board)
+
+  
   res.redirect('/')
 })
+//
+
+// let testWin = ['x', false, false, 'x', false, false, 'x', false, false]
+
+// function winArray (arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let newArr = arr.findIndex(arr.push[i])
+//       console.log(newArr)
+//   }
+//   // newArr = arr.findIndex(item => 'x')
+//   // console.log(newArr)
+// }
+// winArray(testWin)
+
+//
 
 module.exports = server
+
+
+
+
+
+// function winCondition () {
+
+// }
