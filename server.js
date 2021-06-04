@@ -27,6 +27,7 @@ server.get('/', (req, res) => {
 
 server.post('/', (req, res) => {
   let value = Object.keys(req.body)[0]
+  let result = false
   board[value] = player
   console.log(board)
 
@@ -34,22 +35,29 @@ server.post('/', (req, res) => {
   console.log('player moves ' + playerMoves)
 
   if (utils.checkWin(playerMoves)) {
-    console.log('player ' + player + ' wins!')
+    console.log("WIN")
+     result = true
   }
 
-  if (player === 'x') {
-    player = 'o'
-  } else if (player === 'o') {
-    player = 'x'
+  if (result) {
+    board = [false, false, false, false, false, false, false, false, false]
+    res.redirect('win')
+  } else {
+    if (player === 'x') {
+      player = 'o'
+    } else if (player === 'o') {
+      player = 'x'
+    }
+    res.redirect('/')
   }
-  res.redirect('/')
 })
 
 /**
  * temp win function to render a win page. Passed viewData obj temp for testing
  */
 server.get('/win', (req, res) => {
-  res.render('win', {player: 'x'})
+  res.render('win', {player: player})
+  player = 'x'
 })
 
 module.exports = server
