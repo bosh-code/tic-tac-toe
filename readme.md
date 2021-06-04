@@ -10,7 +10,7 @@ Use [git](https://git-scm.com/downloads) to clone the [repo](https://github.com/
 git clone https://github.com/bosh-code/tic-tac-toe.git
 ```
 
-Use [node](https://nodejs.org/en/download/) and npm to install dependancies Tic-tac-toe.
+Use [node](https://nodejs.org/en/download/) and npm to install dependencies Tic-tac-toe.
 
 ```bash
 cd tic-tac-toe && npm i
@@ -29,7 +29,7 @@ After generating the tailwind.css file, the project can be run using:
 ```bash
 nodemon index
 ```
-Alternatively, the tailwind.css file can be generator and the server started using the node script
+Alternatively, the tailwind.css file can be generated, and the server started using the node script
 
 ```bash
 npm run dev
