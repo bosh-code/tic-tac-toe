@@ -37,4 +37,11 @@ server.post('/', (req, res) => {
   res.redirect('/')
 })
 
+/**
+ * temp win function to render a win page. Passed viewData obj temp for testing
+ */
+server.get('/win', (req, res) => {
+  res.render('win', {player: 'x'})
+})
+
 module.exports = server
