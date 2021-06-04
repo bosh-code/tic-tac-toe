@@ -1,11 +1,16 @@
-<main class="min-w-0 flex-auto grid grid-cols-3 gap-4">
+<h1 class="text-center font-press-start">Tic Tac Toe</h1>
+<h2 class="text-center mb-8">X plays first</h2>
+
+<main>
+<div class="min-w-0 flex-auto grid grid-cols-3 w-2/5 gap-4 text-center border-4 p-4 mx-auto rounded-2xl h-board">
 {{#each board}}
     {{#if this}}
-        <p id="{{@index}}">{{this}}</p>
+        <p class="flex justify-center items-center font-press-start border text-4xl w-full h-full" id="{{@index}}">{{this}}</p>
     {{else}}
-        <form class="form" action="/" method="post">
-            <input type="submit" name="{{@index}}" value="&emsp;">
+        <form class="form border" action="/" method="post">
+            <input class="w-full h-full bg-transparent" type="submit" name="{{@index}}" value="&emsp;">
         </form>
     {{/if}}
 {{/each}}
+</div>
 </main>
