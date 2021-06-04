@@ -1,4 +1,6 @@
 const express = require('express')
+const utils = require('./utils')
+
 const hbs = require('express-handlebars')
 
 const server = express()
@@ -26,14 +28,20 @@ server.get('/', (req, res) => {
 server.post('/', (req, res) => {
   let value = Object.keys(req.body)[0]
   board[value] = player
+  console.log(board)
+
+  let playerMoves = utils.getWinArr(board, player)
+  console.log('player moves ' + playerMoves)
+
+  if (utils.checkWin(playerMoves)) {
+    console.log('player ' + player + ' wins!')
+  }
 
   if (player === 'x') {
     player = 'o'
   } else if (player === 'o') {
     player = 'x'
   }
-  console.log(player)
-  console.log(board)
   res.redirect('/')
 })
 
